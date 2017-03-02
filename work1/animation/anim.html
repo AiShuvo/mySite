@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><title>animation</title>
+<link rel = "stylesheet" type = "text/css" href = "styleanim.css">
+<script>
+var imageName = ["projapoti1.jpg",
+				 "projapoti2.jpg",
+				 "projapoti3.jpg",
+				 "projapoti4.jpg",
+				 "projapoti5.jpg",
+				 "projapoti6.jpg"];
+var imgNo =0;
+function change(){
+	var finish;
+	var getId = document.getElementById("demo");
+	move();
+	function move(){
+		getId.style.WebkitAnimationName = "amove";
+		getId.style.WebkitAnimationDuration = "1s";
+		finish = setInterval(bigger,1000);
+		}
+	function bigger(){
+		frame();
+		getId.style.WebkitAnimationName = "abigger";
+		getId.style.WebkitAnimationDuration = "2s";
+		clearInterval(finish);
+		}
+	function frame(){
+		getId.src = imageName[imgNo++];
+        if(imgNo>5)
+		imgNo=0;
+	//	clearInterval (finish);
+		}
+}
+</script>
+</head>
+<body>
+<div class="containar">
+<div class = "center">
+<img id = "demo" onclick = "change()" src = "amarAmi.jpg">
+</div>
+</div>
+</body>
+</html>

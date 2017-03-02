@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<meta charset = "UTF-8">
+<head>
+<script src="jquery.js"></script>
+<script src="word.js"></script>
+<script src="details.js"></script>
+<script> 
+var number = [0];
+var serialNo = 0;
+var count = 0;
+window.addEventListener("keydown",eventControllar,false);
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+function next(){
+	count++;
+	if(count<word.length)
+	{
+	if(count==number.length)
+	selectNumber();
+	document.getElementById("flip").innerHTML = count + " " + word[number[count]];
+	document.getElementById("panel").innerHTML = details[number[count]];
+	}
+	if(count >= word.length)
+	{
+	count = word.length;
+	alert("There is no more later!! Thank you");
+	}
+}
+function previous(){
+	if(count>0){
+	count--;
+	document.getElementById("flip").innerHTML = count + " " + word[number[count]];
+	document.getElementById("panel").innerHTML = details[number[count]];
+	}
+	else{alert("there is no more!!Before");count =0}
+}
+function selectNumber(){
+	var selected = true;
+	var i = 0;
+	if(count!=word.length){
+	while(selected){
+		serialNo = parseInt(RandomNumber()*word.length);
+		for(i=0;i<number.length;i++)
+		{
+			if(serialNo == number[i]){
+			selected = true;
+			break;
+			}else{
+			selected = false;
+			}
+		}
+	}
+	number.push(serialNo);
+	}
+}
+function RandomNumber(){
+	var num = Math.random();
+	return num;
+}
+function slideDown(){
+	$(document).ready(function(){
+    $("#panel").slideDown("fast");
+});
+}
+function slideUp(){
+	$(document).ready(function(){
+    $("#panel").slideUp("fast");
+});
+}
+function eventControllar(e){
+			if(e.keyCode==37)
+			previous();
+			else if(e.keyCode==38)
+			slideUp();
+			else if(e.keyCode==39)
+			next();
+			else if(e.keyCode==40)
+			slideDown();
+	}
+</script>
+ 
+<style> 
+#panel,#flip
+{
+padding:5px;
+text-align:center;
+background-color:#e5eecc;
+border:solid 1px #c3c3c3;
+}
+#panel
+{
+padding:50px;
+display:none;
+}
+body {
+    background-color: #d0e4fe;
+	font-size: 200%;
+}
+#button1{
+	background-color:#e5eecc;
+	position: relative;
+	float: left;
+}
+#button2{
+	background-color:#e5eecc;
+	position: relative;
+	float: right;
+}
+#pack{
+	position: relative;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+ 
+<div id = "pack">
+	<div id="flip">Hi i'm Tom.Click me!!</div>
+	<div id = "button1"><button onclick = "previous()">previous</button></div>
+	<div id = "button2"><button onclick = "next()">Next</button></div>
+</div>
+<div id="panel">"tom is a person who will show you the qus. i am mirra i will show you the description.whenever you need any description just click on tom i will open out.to close me click on Tom again.!!",
+				</div>
+
+</body>
+
+<!-- Mirrored from www.w3schools.com/jquery/tryit.asp?filename=tryjquery_slide_down by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Jan 2015 07:26:15 GMT -->
+</html>

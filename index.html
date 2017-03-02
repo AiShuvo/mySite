@@ -1,0 +1,130 @@
+<html>
+<meta charset = "UTF-8">
+<head><title>~infinite~</title>
+<link rel = "stylesheet" type = "text/css" href = "style.css">
+</head>
+<body>
+<script>
+var imageName=["images/img1.jpg"];
+</script>
+	<div class = "containar">
+		<div class = "header">
+			Add header here;
+		</div>	
+		<div class = "menuBar">
+			Add Menu Item here;
+		</div>
+		<div class = "verticalDevide">
+			<div class = "leftSide">
+				add diffrent link here;
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<li>add some link here</li>
+				<img src = "images/img1.jpg">
+			</div>
+			<div class = "rightSide">
+				<div class = "rightSub1">
+					<script>
+					var titlel = ["Image Animation using CSS3 & Javascript.",
+								  "Image Sliding Using CSS3 & Javascript.",
+					              "Snake Game",
+								  "Simple Car Game Using C++",
+								  "Shoot Your Enemy",
+								  "বিসিএস এর প্রিপারেশন"];
+								  
+					var titler = ["Planet Movement relative to each other",
+								  "Dew drop on colorful water Animation.",
+								  "Egg Throw",
+								  "I Don't know",
+								  "brick breaker game"];
+								  
+					var imageNamel=["images/img1.JPG",
+                					"https://scontent-lax.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11043043_816566561749443_6017325904250334985_n.jpg?oh=d6cdfeeaa5fd6de92e1f4a228d831897&oe=55743D05",
+									"",
+									"",
+									"images/shootYourEnemy.JPG",
+									"images/bcs.JPG"];
+					
+					var imageNamer=["images/planetAnimation.PNG",
+									"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/11229960_853647548041344_7645399844918532508_n.jpg?oh=0b0695c81deeb21dd7e90c950cce9a4b&oe=55CF51AD&__gda__=1438752199_c46bdda0e3aa8952c95317e48128fc85",
+									"images/eggThrow.JPG",
+									"images/limeBoxOnWhiteCarpet.JPG"
+									];
+					
+					var linkl = ["work1/index.html",
+								"work3/index.html",
+								"work5/index.html",
+								"work7/Simple Car Game.exe",
+								"work9/index.html",
+								"work11/index.html"];
+					
+					var linkr = ["work2/index.html",
+								 "work4/index.html",
+								 "work6/index.html",
+								 "work8/index.html",
+								 "work10/index.html"];
+					
+					for(var i = 0;i<linkl.length;i++){
+							document.write('<div id = "homeItem">');
+							document.write('<li id = "bullet">');
+							document.write(titlel[i]);
+							document.write('</li>');
+							
+							document.write('<a href = "');
+							document.write(linkl[i]);
+							document.write('">');
+							
+							document.write('<img id = "homeImg" src = ');
+							document.write(imageNamel[i]);
+							document.write('>');
+							document.write('</a>');
+							//document.write('<a href = "work1/index.html">clickme</a>');
+							document.write('<a href = "');
+							document.write(linkl[i]);
+							document.write('"><p id = "lilDiscription">');
+							document.write('Click here to view.')
+							document.write('</p></a>');
+							document.write('</div>');
+						}
+					</script>
+					
+				</div>
+				<div class = "rightSub2">
+					<script>
+						for(var i = 0;i<linkr.length;i++){
+							document.write('<div id = "homeItem">');
+							document.write('<li id = "bullet">');
+							document.write(titler[i]);
+							document.write('</li>');
+							
+							document.write('<a href = "');
+							document.write(linkr[i]);
+							document.write('">');
+							
+							document.write('<img id = "homeImg" src = ');
+							document.write(imageNamer[i]);
+							document.write('>');
+							
+							document.write('</a>');
+							//document.write('<a href = "work1/index.html">clickme</a>');
+							document.write('<a href = "');
+							document.write(linkr[i]);
+							document.write('"><p id = "lilDiscription">');
+							document.write('Click here to view.')
+							document.write('</p></a>');
+							document.write('</div>');
+						}
+					</script>
+				</div>
+			</div>			
+		</div>
+		<div class = "footer">
+			add footer here;
+		</div>
+	</div>
+</body>
+</html>

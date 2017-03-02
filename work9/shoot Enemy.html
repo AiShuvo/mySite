@@ -1,0 +1,149 @@
+<html>
+<head><title>shooting game</title>
+<script src = "enemy Class.js"></script>
+<script src = "canvas Class.js"></script>
+<script src = "myTank.js"></script>
+<script src = "Score.js"></script>
+<script>
+var enemy = [new Enemy(),new Enemy(),new Enemy(),new Enemy()];
+var canvas = new Canvas();
+var score = new Score();
+//setting up my tank
+var mytank = new myTank();
+var clearEnemyPosition;
+var clearAll;
+var enemyAlive = [0,0,0,0];
+function Engin(){
+window.addEventListener("keydown",eventControllar,false);
+	alert("In game you will get 4 enemy. To win this Game you need to kill them\n move your tank with left, right, up, down arrows\n and shoot with speace button");
+	canvas.setContext("canvas");
+	mytank.setContext("canvas");
+	score.setContext("canvas");
+	
+	canvas.drawRect(0,0,300,400,"black");
+	canvas.drawRect(0,0,300,50, "white");
+	
+	enemy[0].setContext("canvas");
+	enemy[1].setContext("canvas");
+	enemy[2].setContext("canvas");
+	enemy[3].setContext("canvas");
+	
+	enemy[0].setPosition(0,50);
+	enemy[1].setPosition(270,50);
+	enemy[2].setPosition(0,370);
+	enemy[3].setPosition(270,370);
+	mytank.setXY(150,200);
+	
+	enemy[0].setFace(false,false,false,true);
+	enemy[1].setFace(false,false,false,true);
+	enemy[2].setFace(false,false,true,false);
+	enemy[3].setFace(false,false,true,false);
+	
+	enemy[0].drawEnemy();
+	enemy[1].drawEnemy();
+	enemy[2].drawEnemy();
+	enemy[3].drawEnemy();
+	mytank.drawTank();
+	
+	clearEnemyPosition = setInterval(changeEnemyPosition,500)
+	clearAll = setInterval(draw,10);
+	
+}
+function changeEnemyPosition(){
+ var i =0;
+for(i=0;i<=3;i++)
+	if(enemy[i].getLife()>=0)
+	enemy[i].changeEnemyPosition();
+}
+function draw(){
+	var i = 0;
+	var j = 0;
+	canvas.drawRect(0,0,300,400,"black");
+
+	mytank.drawTank();
+	
+	for(i=0;i<=3;i++)
+	if(enemy[i].getLife()>>0)
+	{
+	enemy[i].drawEnemy();
+	}
+	else {
+		enemy[i].setPosition(320,0);
+		enemyAlive[i] = 1;
+	//	alert(enemy[i].checkGameOver(enemyAlive));
+		if(enemy[i].checkGameOver(enemyAlive))
+		{
+			alert("You won. game over");
+			enemy[0].drawText();
+			clearInterval(clearAll);
+			clearInterval(clearEnemyPosition);
+			break;
+		}
+		}
+		
+//	canvas.drawRect(0,0,300,50, "green");
+
+	for(i = 0;i<=3;i++)
+		for(j= 0;j<=6;j++){
+			if(mytank.getBulletX()==enemy[i].getEveryBlockPositionX()[j] && mytank.getBulletY()==enemy[i].getEveryBlockPositionY()[j])
+			{
+			mytank.setBulletPosition(-10,-10);
+			mytank.setBulletFace(false,false,false,false);
+			enemy[i].decideLife();
+			}
+		}
+		score.setLife(mytank.getLife(),enemy[0].setLife(),enemy[1].setLife(),enemy[2].setLife(),enemy[3].setLife());
+		score.drawRect(0,0,300,50,"green");
+		score.drawScore();
+		for(i = 0;i<=3;i++)
+		for(j= 0;j<=6;j++)
+		if(enemy[i].getBulletX()==mytank.getBlockPositionX()[j] && enemy[i].getBulletY() == mytank.getBlockPositionY()[j])
+		{
+			mytank.decideLife(clearEnemyPosition,clearAll);
+		    enemy[i].setBulletPosition();
+		}
+		
+}
+function eventControllar(e){
+            if(mytank.getX()>=20)
+				if(e.keyCode ==37){//key left
+					mytank.setFace(true,false,false,false);
+					mytank.changePosition();
+				}
+				if(mytank.getX()<=270)
+				if(e.keyCode ==39)//key right
+				{//key left
+					mytank.setFace(false,true,false,false);
+					mytank.changePosition();
+				}
+			if(mytank.getY()>=70)
+				if(e.keyCode ==38)//key up
+				{
+					mytank.setFace(false,false,true,false);
+					mytank.changePosition();
+				}
+			
+			if(mytank.getY()<=370)
+				if(e.keyCode ==40)//key down
+				{//key left
+					mytank.setFace(false,false,false,true);
+					mytank.changePosition();
+				}
+
+			if(e.keyCode==32){
+			if(mytank.getBulletX()<=0||mytank.getBulletX()>=300||mytank.getBulletY()<=50||mytank.getBulletY()>=400){
+			mytank.setBulletPosition(mytank.getX(),mytank.getY());
+			mytank.setBulletFace(mytank.getLeft(),mytank.getRight(),mytank.getUp(),mytank.getDown());
+			}
+			}
+	}
+</script>
+</head>
+<body onload = Engin()>
+<canvas width = "300" height = "400" id = "canvas">
+sorry your browser does not support Html5.
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</canvas>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<style>
+canvas{
+margin:auto;
+
+background:transparent;
+-webkit-transform:rotateX(60deg);
+-moz-transform:rotateX(60deg);
+-o-transform:rotateX(60deg);
+-ms-transform:rotateX(60deg);
+
+background:black;
+position:absolute;
+top:-250px;
+right:0px;
+}
+body{
+background:black;
+margin:0px;
+padding:0px;
+}
+#main{
+position:absolute;
+background:transparent;
+left:0px;
+top:25px;
+color:blue;
+}
+#main span, button{
+-webkit-box-shadow : 0px 0px 10px blue;
+-moz-box-shadow : 0px 0px 10px blue;
+-o-box-shadow : 0px 0px 10px blue;
+
+
+-webkit-border-radius:2em;
+-moz-border-radius:2em;
+-o-border-radius:2em;
+
+background:black;
+color:gray;
+font-style:bold;
+font-size:16px;
+}
+#Mercury{
+display:inline-block;
+width:20px;
+height:20px;
+margin:5px;
+}
+#title{
+color:gray;
+font-size:25px;
+list-style-type:none;
+-webkit-box-shadow : 0px 0px 10px blue;
+-moz-box-shadow : 0px 0px 10px blue;
+-o-box-shadow : 0px 0px 10px blue;
+
+-webkit-border-radius:2em;
+-moz-border-radius:2em;
+-o-border-radius:2em;
+}
+</style>
+	<body>
+	<center><li id = "title">The planet is moving relative to each other like this</li>	</center>
+
+		<canvas id="myCanvas" width="1200px" height="1200px" style="border:0px solid #d3d3d3;">
+			Your browser does not support the canvas element.
+		</canvas>
+
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var h = 0;
+	var d = 0;
+	var curve = 100;
+	var curveSpace = 50;
+	var PlanetName = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto"];
+    var travelTime = [88,224.7,365.2,687,4332,10760,30700,60200,90600];//time required to travel it's own orbit in day's according to : Marcury----->Pluto;
+	var Angle = [0,0,0,0,0,0,0,0,0];
+	var speed = 2000;
+	var year = [0,0,0,0,0,0,0,0,0];
+	var color = ["red","green","blue","pink","purple","white","lime","maroon","orange"];
+	var stop;
+	draw();
+	//yearCount();
+	function position(r , angle){
+        h = r * Math.sin(Math.PI*angle/180);
+		d = r * Math.sin((90-angle)*Math.PI/180);
+	}
+
+	function draw(){
+		ctx.fillStyle = "black";
+		ctx.fillRect(0,0,1200,1200);
+		planate(0,0,40,"yellow");
+		//draw planate................................
+		curve =100;
+		for(var i = 0; i <=8; i++){
+		planate(curve+=curveSpace,Angle[i]+=(speed/travelTime[i]),15,color[i]);
+		if(Angle[i]>360)Angle[i]=0;
+		}
+	}
+	
+	function planate(orbitRedious, angl, diaOfPlanet, color){
+		//draw orbit........
+		ctx.strokeStyle = "blue";
+		ctx.beginPath();
+		ctx.arc(600, 600,orbitRedious,0,2*Math.PI);
+		ctx.stroke();
+		//draw planet..........
+		position(orbitRedious,angl);
+		ctx.fillStyle = color;
+		ctx.beginPath();
+		ctx.arc((600+d),(600+h),diaOfPlanet,0,2*Math.PI);
+		ctx.stroke();
+		ctx.fill();
+	}
+	
+	function stopAnim(){
+		clearInterval(stop,0);
+	}
+	
+	function startAnim(){
+		stop = setInterval(draw,30);
+	}
+		</script>
+	
+		<div id = "main">
+		<script>
+		for(var i = 0; i<=8; i++){
+			document.write('<span id = "Mercury" style = "background:');
+			document.write(color[i]);
+			document.write('"></span><span>');
+			document.write(PlanetName[i]);
+			document.write('</span><br>');					
+			}
+		</script>
+			<button  onclick = "startAnim()">Start Animation</button><br/>
+			<button  onclick = "stopAnim()">Stop Animation</button><br/>
+		</div>
+	</body>
+</html>

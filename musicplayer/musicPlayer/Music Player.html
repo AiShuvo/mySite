@@ -1,0 +1,195 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="layout.css">
+	<link rel="stylesheet" type="text/css" href="inputTypeRange.css">
+	<link rel="stylesheet" type="text/css" href="animation.css">
+<link rel="stylesheet" type="text/css" href="playList.css">
+<script src = "animation.js"></script>
+<script src = "playList.js"></script>
+</head>
+<body>
+
+<input type = "file" class = "inputFileOption" id = "file" onchange = "fileAdd()" multiple>
+<audio src = "" id = "audio" ></audio>
+
+<div class = "container bottomCenter">
+	<div class = "playerSkin leftCenter" id = "playerSkin" >
+		<div class = "displayTime leftUp"></div>
+		<div class = "displayFileInfo centerUp">
+			<div class = "title centerUp">
+				<strong class = "sameText"id = "first">Nothing To Play...</strong>
+				<strong class = "sameText" id = "second">Nothing To Play...</strong>
+			</div>
+			<div class = "fileSize bottomCenter"></div>
+		</div>
+		<div class = "displayAnimation rightUp"></div>
+		<div class = "leftCenter songUpdateBar">
+		<!-- songUpdateBar class should remain later-->
+			<input type = "range" class = "range center songBar" id = "range">
+		</div>
+		<div class = "rightCenter volumeControlBar">
+		<!-- songUpdateBar class should remain later-->
+			<img src = "" alt = "M" class = "leftCenter">
+			<input type = "range" class = "range rightCenter volumeBar" id = "range">
+		</div>
+		<div class = "SettingAndFile bottomLeft">
+			<img src = "" alt = "S" class = "leftCenter">
+			<label for = "file"><img for = "file" src = "" alt = "+" class = "center"></label>
+			<img src = "" alt = "S" class = "rightCenter">
+		</div>
+		<div class = "songControlBtn bottomCenter">
+			<img src = "" alt = "|<<" class = "leftCenter">
+			<img src = "" alt = "play" class = "center" onclick = "playBtn()">
+			<img src = "" alt = ">>|" class = "rightCenter">
+		</div>
+		<div class = "moreControlBtn bottomRight">
+				<img src = "" alt = "A" class = "leftUp">
+				<img src = "" alt = "B" class = "centerUp">
+				<img src = "" alt = "AB" class = "rightUp">
+				<img src = "" alt = "R" class = "bottomCenter">
+				<img src = "" alt = "L" class = "bottomRight" onclick = "fileListOpen()">
+		</div>
+	</div>
+	<div class = "showFileList rightCenter" id = "fileSkin">
+		<div class = "playListTitle" > 
+			<span class = "center" >i am playlist</span>
+			<img src = "" alt = ">>" class = "closeBtn leftCenter" onclick="fileListClose()">
+		</div>
+	</div>
+</div>
+</body>
+<script>
+var list= new Array();
+var audio = document.getElementById("audio");
+var file = null;
+function fileAdd() {	
+	file = document.getElementById("file").files;
+	if(file){
+		loadSong(file[0], true);		
+		insertFileName(file[0].name);
+		}
+}
+
+function loadSong(song,decesion){
+if(decesion){
+	var reader = new FileReader();
+		reader.readAsDataURL(song);
+		reader.addEventListener("load",function(){
+		audio.src = reader.result;
+	});
+	}
+	return false;
+}
+function playBtn(){
+	if(audio.paused)
+		audio.play();
+	else
+		audio.pause();
+}
+function insertFileName(text){
+	document.getElementById("first").innerHTML = "|  "+ text;
+	document.getElementById("second").innerHTML = "|  "+ text;
+}
+</script>
+</html>
+<!--
+		<div class = "display center">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display leftCenter">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display rightCenter">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display leftUp">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display rightUp">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display centerUp">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display bottomLeft">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display bottomRight">
+			<div class = "display center"></div>
+			<div class = "display leftCenter"></div>
+			<div class = "display rightCenter"></div>
+			<div class = "display leftUp"></div>
+			<div class = "display rightUp"></div>
+			<div class = "display centerUp"></div>
+			<div class = "display bottomLeft"></div>
+			<div class = "display bottomRight"></div>
+			<div class = "display bottomCenter"></div>
+		</div>
+		<div class = "display bottomCenter">
+			<img class = " center" alt = "AB">
+			<img class = " leftCenter" alt = "AB">
+			<img class = " rightCenter" alt = "AB">
+			<img class = " leftUp" alt = "AB">
+			<img class = " rightUp" alt = "AB">
+			<img class = " centerUp" alt = "AB">
+			<img class = " bottomLeft" alt = "AB">
+			<img class = " bottomRight" alt = "AB">
+			<img class = " bottomCenter" alt = "AB">
+		</div>
+-->

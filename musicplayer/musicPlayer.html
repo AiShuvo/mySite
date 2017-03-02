@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head><title>MusicPlayer</title>
+
+<link rel="stylesheet" type="text/css" href="playerStyle.css">
+
+</head>
+
+<body>
+
+<input type = "file" id = "file" onchange = "fileAdd()" multiple>
+<audio src = "" id = "audio" controls ></audio>
+<label for = "file">try it</label>
+
+<input type ="file" id = "filepicker" name = "fileList" webkitdirectory multiple/>
+
+<ul id = "listing"></ul>
+
+<input type = "file" id = "files" multiple/>
+
+</body>
+<script>
+/*document.getElementById("filepicker").addEventListener("change", function(event){
+let output = document.getElementById("listing");
+let files = event.target.files;
+
+for(let i = 0; i<files.length;i++){
+let item = document.createElement("li");
+item.innerHTML = files[i].webkitRelativePath;
+output.appendChild(item);
+}; 
+}, false);*/
+
+document.getElementById("files").addEventListener("change", function(event){
+event.target.webkitEntries.forEach(function(entry){});
+})
+</script>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head><title>new game</title>
+<style>
+#bodyProperty{
+margin : 0,0,0,0;
+}
+</style>
+<script src = "drawRectFile.js"></script>
+<script src = "limeBox.js"></script>
+<script>
+
+var classfile = new rectFile();
+var box = [new rectFile(),new rectFile(),new rectFile(),new rectFile(),new rectFile(),new rectFile()]
+var limebox = new limeBox();
+
+var gY = [500,600,700,800,900,1000];
+var posX = [0, 115, 215, 176, 53];
+var boxNo = [0,1,2,3,4,5];
+var limeBoxPosX = 50;
+var limeBoxPosY = 400;
+var point = 0;
+var speed = 20;
+var count = 1;
+var animation ;
+function Canvas(){
+window.addEventListener("keypress",eventControllar,false);
+	var i = 0;
+	classfile.setContextId("myCanvas");
+	limebox.setContextId("myCanvas");	
+//	score.setContextId("myCanvas");	
+	classfile.drawRect(0,0,290,500,"black");
+		alert("Don't keep your lime box on red carpet.\nMove the box using 'B' and 'M'");
+	for(i = 0; i<5; i++){
+		box[i].setContextId("myCanvas");
+		box[i].setPosOfBox(posX[i],500);
+		box[i].drawBox();
+		}
+//	animation = setInterval(draw,speed);
+	//draw();
+	run(speed);
+	}
+	function run(s){
+	animation = setInterval(draw,s);
+	}
+function draw(){
+	var i = 0;
+	var k = 0;
+	classfile.drawRect(0,0,290,500,"black");
+	for(i=0;i<5;i++){
+		box[i].setText(i);
+		box[i].setPosOfBox(posX[boxNo[i]],gY[i]--);
+		box[i].drawBox();		
+		if(gY[i]<=0){
+			point+=5;
+			//score.setScore(point);
+			gY[i]=490;
+			boxNo[i] = createRandome(5);
+			if(createRandome(100)%4==0){//its defined the number of red boxes if you give 3 in case of 4 the number of red boxes will increase similarly for 2 and 1;
+			box[i].setBoxColor("red");
+			}
+			else
+				box[i].setBoxColor("white");
+			}
+		}
+		//for(k = 0; k<5;k++)
+		//ekhana theke abar modifi kore start korlam ok
+		if(limeBoxPosX>=box[0].getPosXofBox()-10 && limeBoxPosX<=70+box[0].getPosXofBox() && limeBoxPosY == box[0].getPosYofBox())
+			{
+				limeBoxPosY--;
+				if(box[0].getBoxColor()=="red")
+				{
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+				}
+		else if(limeBoxPosX>=box[1].getPosXofBox()-10 && limeBoxPosX<=70+box[1].getPosXofBox() && limeBoxPosY == box[1].getPosYofBox())
+			{
+				limeBoxPosY--;
+				if(box[1].getBoxColor()=="red")
+				{
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+				}
+		else if(limeBoxPosX>=box[2].getPosXofBox()-10 && limeBoxPosX<=70+box[2].getPosXofBox() && limeBoxPosY == box[2].getPosYofBox())
+			{
+				limeBoxPosY--;
+				if(box[2].getBoxColor()=="red")
+				{
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+				}
+		else if(limeBoxPosX>=box[3].getPosXofBox()-10 && limeBoxPosX<=70+box[3].getPosXofBox() && limeBoxPosY == box[3].getPosYofBox())
+			{
+				limeBoxPosY--;
+				if(box[3].getBoxColor()=="red")
+				{
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+				}
+		else if(limeBoxPosX>=box[4].getPosXofBox()-10 && limeBoxPosX<=70+box[4].getPosXofBox() && limeBoxPosY == box[4].getPosYofBox())
+			{
+				limeBoxPosY--;
+				if(box[4].getBoxColor()=="red")
+				{
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+				}
+		else
+			limeBoxPosY++;
+		if(limeBoxPosY == 500 || limeBoxPosY == 0)
+           {
+			alert("GameOver; Your score : " + point);
+			clearInterval(animation);
+			}
+		limebox.setPosition(limeBoxPosX,limeBoxPosY);
+		limebox.drawBox();
+			speedUp();
+}
+function eventControllar(e){
+			if(e.keyCode == 109 && limeBoxPosX<270)
+			limeBoxPosX+=10;
+			if(e.keyCode == 98 && limeBoxPosX>0)
+			limeBoxPosX-=10;
+	//		alert(e.keyCode);
+	}
+
+function createRandome(upTo){
+	var value = 0;
+	do{
+		value = parseInt(Math.random()*upTo);
+	}while(value>=upTo)
+		return value;
+}
+///modifie 2 ok ami jnai na ki hove ok......
+function speedUp(){
+	if(point==50*count)
+		{
+		count++;
+		clearInterval(animation);
+		speed--;
+		if(speed <= 0)
+		speed=0;
+		run(speed);
+		}
+}
+</script>
+</head>
+<body onload = "Canvas()">
+<canvas id = "myCanvas" width = "285" height = "500">
+</canvas>
+</body>
+<html>

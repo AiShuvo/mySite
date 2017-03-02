@@ -1,0 +1,146 @@
+/*++++++++++++++++++++++++++++++++++++	Start +++++++++++++++++++++++*/
+/*aniamtion to open file in side bar*/
+.showPlaylist{    
+	-webkit-animation: openPlaylist 0.1s forwards; /* Chrome, Safari, Opera */
+    animation: openPlaylist 0.1s forwards;
+	overflow-y:auto;
+}
+.helpToShowPlaylist{    
+	-webkit-animation: shrinkPlayer 0.1s forwards; /* Chrome, Safari, Opera */
+    animation: shrinkPlayer 0.1s forwards;
+}
+.hidePlaylist{    
+	-webkit-animation: closePlaylist 0.1s forwards; /* Chrome, Safari, Opera */
+    animation: closePlaylist 0.1s forwards;
+	overflow-y:hidden;
+}
+.helpToClosePlaylist{    
+	-webkit-animation: growPlayer 0.1s forwards; /* Chrome, Safari, Opera */
+    animation: growPlayer 0.1s forwards;
+}
+
+/*in times of half opening playlist */
+
+@-webkit-keyframes shrinkPlayer {
+    from {width: 100%;}
+    to {width: 50%;}
+}
+
+@keyframes shrinkPlayer {
+    from {width: 100%;}
+    to {width: 50%;}
+}
+@-webkit-keyframes openPlaylist {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
+@keyframes openPlaylist {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
+
+/*in times of closing playlist */
+
+
+@-webkit-keyframes growPlayer {
+    from {width: 50%;}
+    to {width: 100%;}
+}
+
+@keyframes growPlayer {
+    from {width: 50%;}
+    to {width: 100%;}
+}
+@-webkit-keyframes closePlaylist {
+    from {width: 50%;}
+    to {width: 0%;}
+}
+
+@keyframes closePlaylist {
+    from {width: 50%;}
+    to {width: 0%;}
+}
+
+
+/*in times of full playlist*/
+
+@-webkit-keyframes shrinkPlayerFull {
+    from {width: 100%;}
+    to {width: 0%;}
+}
+
+@keyframes shrinkPlayerFull {
+    from {width: 100%;}
+    to {width: 0%;}
+}
+@-webkit-keyframes openPlaylistFull {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
+@keyframes openPlaylistFull {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
+
+/*in times of closing playlist */
+
+
+@-webkit-keyframes growPlayerFull {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
+@keyframes growPlayerFull {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+@-webkit-keyframes closePlaylistFull {
+    from {width: 100%;}
+    to {width: 0%;}
+}
+
+@keyframes closePlaylistFull {
+    from {width: 100%;}
+    to {width: 0%;}
+}
+/*++++++++++++++++++++++++++++++++++++++++++++*/
+/*text animation*/
+
+.sameText{
+	width:100%;
+	display:block;
+	position:absolute;
+	top:50%;
+	left:105%;
+	white-space: nowrap;
+	overflow:hidden;
+	
+	transform:translate(0%,-50%);
+	-ms-transform:translate(0%,-50%);
+	-webkit-transform:translate(0%,-50%);
+	
+	-webkit-animation:textAnimation 16s infinite;
+	-webkit-animation-timing-function: linear; 
+	
+	animation:textAnimation 16s infinite;
+	animation-timing-function:linear;
+}
+#second{
+	-webkit-animation-delay:8s;
+	animation-delay:8s;
+}
+#first{
+
+}
+@-webkit-keyframes textAnimation {
+    from {left: 100%;}
+    to {left: -100%;}
+}
+@keyframes textAnimation {
+    from {left: 100%;}
+    to {left: -100%;}
+}

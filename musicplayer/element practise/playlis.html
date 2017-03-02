@@ -1,0 +1,134 @@
+<html>
+<head>
+	<title></title>
+<style>
+#container{
+	width:50%;
+	height:50%;
+	background:white;
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform:translate(-50%,-50%);
+	box-shadow:0px 0px 10px blue;
+	border:0px;
+	overflow:hidden;
+}
+.showSongListAnimation{
+	-webkit-animation:songListOn 0.2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	
+	animation:songListOn 0.2s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+.closeSongListAnimation{
+	-webkit-animation:songListOff 0.2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	
+	animation:songListOff 0.2s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes songListOff {
+    from {width: 50%; height:50%;}
+    to {width: 0%; height:0%;display:none;}
+}
+@keyframes songListOff {
+    from {width: 50%; height:50%;}
+    to {width: 0%; height:0%;display:none;}
+}
+@-webkit-keyframes songListOn {
+    from {width: 0%; height:0%;}
+    to {width: 50%; height:50%;}
+}
+@keyframes songListOn {
+    from {width: 0%; height:0%;}
+    to {width: 50%; height:50%;}
+}
+.singleSong{
+	width:100%;
+	height:1em;
+	background:white;
+	display:block;
+	overflow:hidden;
+}
+.singleSong:hover{
+	background:blue;
+}
+.delBtn{
+	float:right;
+	width:1em;
+	height:1em;
+	background:white;
+	cursor:pointer;
+}
+.songName{
+	float:left;
+	width:90%;
+	height:1em;
+	background:yellow;
+}
+</style>
+	</head>
+<body>
+	<button onclick = "showSongList()" >show Playlist</button>
+	<div class = "container" id = "container"><div onclick = "closeList()">i am title bar</div></div>
+</body>
+<script>
+var song = new Array("ami chai na.","tumi chaao na","kita koram","what the fuck");	
+var addSong = true;
+
+function createSongList(i){
+
+if(i){
+var container = document.getElementById("container");
+
+	for(var i = 0;i<song.length;i++){
+		var singleSong = document.createElement("div");
+		singleSong.setAttribute("class", "singleSong");
+		singleSong.setAttribute("id", "singleSong"+i);
+		container.appendChild(singleSong);
+
+		var delBtn = document.createElement("span");
+		delBtn.appendChild(document.createTextNode("X"));
+		delBtn.setAttribute("class", "delBtn");
+		delBtn.setAttribute("id", "delBtn"+i);
+		delBtn.setAttribute("onclick", "delSong("+i+")");
+		singleSong.appendChild(delBtn);
+
+		var songName = document.createElement("span");
+		songName.appendChild(document.createTextNode(song[i]));
+		songName.setAttribute("class","songName");
+		songName.setAttribute("id","songName"+i);
+		songName.setAttribute("onclick","songName(songName"+i+")");
+		singleSong.appendChild(songName);
+		}
+	addSong=false;
+	}
+}
+function myFunction(){
+alert("yes working");
+}
+function showSongList(){
+	var songlist = document.getElementById("container");
+	songlist.style.display = "block";
+	songlist.setAttribute("class","showSongListAnimation");
+	createSongList(addSong);
+}
+function closeList(){
+	var songlist = document.getElementById("container");
+	songlist.setAttribute("class","closeSongListAnimation");
+}
+function delSong(i){
+	var id = "singleSong"+i;
+	document.getElementById(id).style.display= "none";
+	song.splice(i,1);
+}
+</script>
+</html>

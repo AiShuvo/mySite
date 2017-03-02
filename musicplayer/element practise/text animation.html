@@ -1,0 +1,59 @@
+<html>
+<head></head>
+<style>
+#title{
+width:50%;
+height:1em;
+display:inline-block;
+border:1px solid black;
+position:relative;
+top:0px;
+}
+.sameText{
+	width:wrap;
+	display:block;
+	position:absolute;
+	top:50%;
+	left:100%;
+	white-space: nowrap;
+	overflow:hidden;
+	
+	transform:translate(0%,-50%);
+	-ms-transform:translate(0%,-50%);
+	-webkit-transform:translate(0%,-50%);
+	
+	-webkit-animation:textAnimation 16s infinite;
+	-webkit-animation-timing-function: linear; 
+	
+	animation:textAnimation 16s infinite;
+	animation-timing-function:linear;
+}
+#second{
+	-webkit-animation-delay:8s;
+	animation-delay:8s;
+}
+@-webkit-keyframes textAnimation {
+    from {left: 100%;}
+    to {left: -100%;}
+}
+@keyframes textAnimation {
+    from {left: 100%;}
+    to {left: -100%;}
+}
+</style>
+<body>
+<div id = "title">
+<strong class = "sameText"id = "first">whats going on what will i do in life nobody loves me allah plz you help me do something for me allah allah allah allah allah alllah</strong>
+<strong class = "sameText" id = "second">whats going on what will i do in life nobody loves me allah plz you help me do something for me.</strong>
+</div><br>
+<button onclick = "myFun('what da')">try</button>
+</body>
+<script>
+function myFun(txt){
+	document.getElementById("first").innerHTML = "Welcome "+ txt;
+	document.getElementById("second").innerHTML = "Welcome "+ txt;
+//	firs = "Paragraph changed!";
+//	secon = "yes!!"
+}
+</script>
+</html>

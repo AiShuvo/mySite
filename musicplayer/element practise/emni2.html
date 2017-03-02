@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style>
+p {
+	word-break: break-all;
+}
+</style>
+<body>
+<input type = "file" id = "file" onchange = "fileAdd()" multiple>
+<audio src = "" id = "audio" controls ></audio>
+<p></p>
+<script>
+var list= new Array();
+var audio = document.getElementById("audio");
+
+function fileAdd() {	
+	var file = document.getElementById("file").files;
+	for(var i = 0; i<file.length;i++)
+	{
+	list[list.length+i] = file.item(i);
+	}
+	if(file)
+		loadSong(list[0], true);
+}
+
+function loadSong(song,decesion){
+if(decesion){
+	var reader = new FileReader();
+		reader.readAsDataURL(song);
+		reader.addEventListener("load",function(){
+		audio.src = reader.result;
+	});
+	}
+	return false;
+}
+</script>
+
+</body>
+
+<!-- Mirrored from www.w3schools.com/js/tryit.asp?filename=tryjs_array_concat2 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Jan 2015 07:24:20 GMT -->
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head><title>Music Player</title>
+<link rel="stylesheet" type="text/css" href="input type range.css">
+<link rel="stylesheet" type="text/css" href="layout.css">
+<link rel="stylesheet" type="text/css" href="animation.css">
+<link rel="stylesheet" type="text/css" href="playList.css">
+<script src = "animation.js"></script>
+<script src = "playList.js"></script>
+</head>
+<body onresize = "onResizeAction()" onload = "showSongList()">
+
+	<div class = "container"><!--Main Container-->
+		<div class = "playerSkin" id = "playerSkin" onclick = "fileListOpen()"><!--player Container. Everything to play song remains here-->
+			<div class = "displayContainer">
+			<!--it's a display container. Display Everything in this Container-->
+				<div class = "displayTime">
+				
+				</div>
+				<div class = "displayFileInfo">
+					<strong class = "sameText"id = "first">whats going on what will i do in life nobody loves me allah plz you help me do something for me allah allah allah allah allah alllah</strong><strong class = "sameText" id = "second">whats going on what will i do in life nobody loves me allah plz you help me do something for me.</strong>
+				</div>
+				<div class = "displayAnimation">
+				
+				</div>
+			</div>
+			<div class = "updateBar">
+				<!-- add all range bar here-->
+				<div class = "songUpdateBar">
+					<!--Add Song Updatebar here-->
+					<input type = "range" class = "range" id = "range">
+				</div>
+				<div class = "muteBtn center">
+					<img src = "" alt = "M">
+				</div>
+				<div class = "volumeBar">
+					<input type = "range" class = "range" id = "volume">
+				</div>
+			</div>
+			<div class = "controlBar" >
+				<!-- add all controls button here-->
+				<div class = "fileAndSetting center">
+					<img src = "" alt = "*">
+					<img src = "" alt = "+">
+					<img src = "" alt = "z<x">
+				</div>
+				<div class = "generalControl center">
+					<img src = "" alt = "|<<">
+					<img src = "" alt = "play">
+					<img src = "" alt = ">>|">					
+				</div>
+				<div class = "moreControls">
+					
+					<img src = "" alt = "A">
+					<img src = "" alt = "B">
+					<img src = "" alt = "AB">
+				</div>
+			</div>
+		</div>
+		<div class = "fileSkin" id = "fileSkin"><!--it's contains all the file-->
+			<div class = "playListTitle" onclick = "fileListClose()"> i am playlist title</div>
+		</div>
+	</div>	
+</body>
+</html>

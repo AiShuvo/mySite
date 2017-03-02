@@ -1,0 +1,43 @@
+<html>
+<head><title>image animation in one click</title>
+<link rel = "stylesheet" type = "text/css" href = "style.css">
+</head>
+<body onload  = "animName()">
+<script>
+var count = true;
+var imageName = ["https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10991047_805732432832856_8475020854827746040_n.jpg?oh=9e0c2a62329dccbf63c08940ff6d4120&oe=5596663E&__gda__=1431808390_166f8d1eb3386493c5c0d6c5c1224624",
+"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10629614_805732506166182_7122285136182613561_n.jpg?oh=aeb6a8176b026715f981a929960aaf96&oe=554CAC19&__gda__=1431593121_4b303861c9b787f109a15b15eec6c24e",
+"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1512836_805732539499512_8898718606579426437_n.jpg?oh=1474998377d1bd20501689a46f7c20de&oe=5564408A&__gda__=1435443217_a1cad44ed0743a3fbb1130b9b6b3bb4d",
+"https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10980757_805732546166178_4616477929439291288_n.jpg?oh=2d0cfd879145e1f4319fbbf6257b8180&oe=5563B277&__gda__=1432522781_51d81ca99dd430d7ff2b3f6d13349b5f",
+"https://scontent-a-sin.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10245328_805732442832855_3418305096066426847_n.jpg?oh=db48a66f380259193107184ba74f2dcc&oe=55514146",
+"http://popcornfor2.com/upload/user_10/images/54/11634-Ginger-cat-white-background.jpg",
+];
+var imgNo = 0;
+function animName(){
+var name = document.getElementById("image");
+	if(count){
+		name.style.WebkitAnimationName = 'move1';
+		count=false;
+		}
+	else{
+		name.style.WebkitAnimationName = 'move';
+		count=true;
+	}
+	var finish = setInterval(frame,500);
+	
+	function frame(){
+		name.src = imageName[imgNo++];
+        if(imgNo>5)
+		imgNo=0;
+		clearInterval (finish);
+	}
+}
+function loadImage(){
+	alert("Image Loaded");
+}
+</script>
+<div id = "top">image Animation using CSS3 & JavaScript:click on Image to change the view</div>
+<img id = "image" src = "http://popcornfor2.com/upload/user_10/images/54/11634-Ginger-cat-white-background.jpg" alt = "internet"onload = "" onclick = 'animName()'>
+<div id = "bottom">www.facebook.com/aishuvo</div>
+</body>
+</html>

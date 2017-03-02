@@ -1,0 +1,87 @@
+body{
+padding:0px;
+margin:0px;
+background:#6E1010;
+}
+.containar{
+margin:0px auto;
+display:block;
+width:1000px;
+height:wrap;
+border:1px solid gray;
+background:white;
+}
+.header{
+		width:1000px;
+		height:100px;
+		display:block;
+		background:#8BACDD;
+		border-bottom:2px inset blue;
+}
+.menuBar{
+		width:1000px;
+		height:30px;
+		display:block;
+		border-bottom:2px inset blue;
+}
+.leftSide{
+		width:198px;
+		height:wrap;
+		display:inline-block;
+		background:white;
+		float:left;
+		border-right:2px inset blue;
+		border-bottom:2px inset blue;
+}
+.rightSide{
+		width:800px;
+		height:wrap;
+		display:inline-block;
+		background:white;
+		float:right;
+		border-bottom:2px inset blue;
+}
+.footer{
+		width:1000px;
+		height:50px;
+		display:block;
+		background:blue;
+		float:bottom
+}
+.verticalDevide{
+		width:1000px;
+		display:inline-block;
+		height:wrap;
+}
+.rightSub1{
+		width:399px;
+		height:wrap;
+		display:inline-block;
+		float:left;
+		border-right:2px inset blue;
+}
+.rightSub2{
+		width:399px;
+		height:wrap;
+		display:inline-block;
+		float:right;
+}
+#homeItem{
+margin:5px 5px 5px 5px;
+background:white;
+}
+#homeItem li{
+text-align:center;
+}
+#homeItem img{
+margin:auto;
+display:block;
+width:100px;
+height:100px;
+clear: both;
+border:2px inset blue;
+}	
+#homeItem p{
+clear: both;
+text-align:center;
+}

@@ -1,0 +1,36 @@
+<html>
+<head></head>
+<style>
+#title{
+width:50%;
+height:1em;
+display:inline-block;
+border:1px solid black;
+position:relative;
+top:0px;
+overflow:hidden;
+}
+strong{
+	width:100%;
+	display:block;
+	position:absolute;
+	top:50%;
+	left:100%;
+	transform:translate(0%,-50%);
+	-webkit-animation:move 16s infinite;
+	-webkit-animation-timing-function: linear; 
+}
+#second{
+	-webkit-animation-delay:8s;
+}
+@-webkit-keyframes move {
+    from {left: 100%;}
+    to {left: -100%;}
+}
+</style>
+<body>
+<div id = "title">
+<strong id = "first">whats going on</strong><strong id = "second">whats going on***</strong>
+</div><span>allah help me!!</span>
+</body>
+</html>

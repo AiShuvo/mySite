@@ -1,0 +1,29 @@
+.playListTitle{
+	width:100%;
+	height:2em;
+	background-color:lime;
+	text-align:center;
+}
+.singleSong{
+	width:100%;
+	height:1em;
+	background:white;
+	display:block;
+	overflow:hidden;
+}
+.singleSong:hover{
+	background:blue;
+}
+.delBtn{
+	float:right;
+	width:1em;
+	height:1em;
+	background:white;
+	cursor:pointer;
+}
+.songName{
+	float:left;
+	width:90%;
+	height:1em;
+	background:yellow;
+}

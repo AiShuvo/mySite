@@ -1,0 +1,353 @@
+
+<!-- saved from url=(0056)file:///C:/xampp/htdocs/myWeb/solarSystem/nazmulVai.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Image Sliding</title>
+<script>
+document.createElement("cxcy");
+</script>
+<style>
+img {
+	width:inherit;
+	height:inherit;
+}
+#me{
+		display:block;
+		position:absolute;
+		width:100%;
+		height:5%;
+		top:5%;
+		background:red;
+		font-size:20px;
+}
+#main{
+		width:100%;
+		height:50%;
+		background:white;
+}
+cxcy{
+		-webkit-transform:translate(-50%,-50%);
+		-moz-transform:translate(-50%,-50%);
+		-ms-transform:translate(-50%,-50%);		
+		color:black;
+		display:inline-block;
+		width:300px;
+		height:300px;
+		background:white;
+		position:absolute;
+		top:50%;
+		left:50%;
+		/*border:2px solid blue;*/
+		margin:auto;
+}
+#center{
+	background:transparent;
+	z-index:3;
+	width:350px;
+	height:350px;
+	-webkit-animation:firstMoveCenter 1s;
+	-webkit-animation-fill-mode:forwards;
+	-webkit-animation-iteration-count:1;
+	/*for Mozila.....*/
+	-moz-animation:firstMoveCenter 1s;
+	-moz-animation-fill-mode:forwards;
+	-moz-animation-iteration-count:1;
+	/*for IE.....*/
+	-ms-animation:firstMoveCenter 1s;
+	-ms-animation-fill-mode:forwards;
+	-ms-animation-iteration-count:1;
+	
+}
+#left{
+	left:30%;
+	background:transparent;
+	z-index:2;
+	-webkit-animation:firstMoveLeft 1s;
+	-webkit-animation-fill-mode:forwards;
+	-webkit-animation-iteration-count:1;
+	/*for Mozila.....*/
+	-moz-animation:firstMoveLeft 1s;
+	-moz-animation-fill-mode:forwards;
+	-moz-animation-iteration-count:1;
+	/*for IE.....*/
+	-ms-animation:firstMoveLeft 1s;
+	-ms-animation-fill-mode:forwards;
+	-ms-animation-iteration-count:1;
+}
+#right{
+	left:70%;
+	background:transparent;
+	z-index:1;
+	-webkit-animation:firstMoveRight 1s;
+	-webkit-animation-fill-mode:forwards;
+	-webkit-animation-iteration-count:1;
+	/*for Mozila.....*/
+	-moz-animation:firstMoveRight 1s;
+	-moz-animation-fill-mode:forwards;
+	-moz-animation-iteration-count:1;
+	/*for IE.....*/
+	-ms-animation:firstMoveRight 1s;
+	-ms-animation-fill-mode:forwards;
+	-ms-animation-iteration-count:1;
+}
+#leftStand{
+left:30%;
+z-index:5;
+background:transparent;
+}
+#rightStand{
+	left:70%;
+	z-index:5;
+background:transparent;
+}
+
+/*onLoad Moving Engin*/
+@-webkit-keyframes firstMoveLeft{
+	from{left:50%;z-index:2;width:300px;height:300px;}
+	to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-webkit-keyframes firstMoveRight{
+	from{left:50%;z-index:1;width:300px;height:300px;}
+	to{left:70%;z-index:1;width:300px;height:300px;}
+}
+@-webkit-keyframes firstMoveCenter{
+	from{left:50%;z-index:30;width:300px;height:300px;}
+	to{left:50%;z-index:30;width:350px;height:350px;}
+}
+/*Engon for Mozila..........*/
+@-moz-keyframes firstMoveLeft{
+	from{left:50%;z-index:2;width:300px;height:300px;}
+	to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-moz-keyframes firstMoveRight{
+	from{left:50%;z-index:1;width:300px;height:300px;}
+	to{left:70%;z-index:1;width:300px;height:300px;}
+}
+@-moz-keyframes firstMoveCenter{
+	from{left:50%;z-index:30;width:300px;height:300px;}
+	to{left:50%;z-index:30;width:350px;height:350px;}
+}
+/*onload Engon for IE..........*/
+@-ms-keyframes firstMoveLeft{
+	from{left:50%;z-index:2;width:300px;height:300px;}
+	to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-ms-keyframes firstMoveRight{
+	from{left:50%;z-index:1;width:300px;height:300px;}
+	to{left:70%;z-index:1;width:300px;height:300px;}
+}
+@-ms-keyframes firstMoveCenter{
+	from{left:50%;z-index:30;width:300px;height:300px;}
+	to{left:50%;z-index:30;width:350px;height:350px;}
+}
+
+
+
+/*Engin for Moving ClockWise Direction*/
+@-webkit-keyframes animCenter{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:70%;z-index:2;width:300px;height:300px;}
+}
+@-webkit-keyframes animLeft{
+from{left:30%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-webkit-keyframes animRight{
+from{left:70%;z-index:1;width:300px;height:300px;}
+to{left:30%;z-index:1;width:300px;height:300px;}
+}
+
+/*Engin for moving mozila*/
+@-moz-keyframes animCenter{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:70%;z-index:2;width:300px;height:300px;}
+}
+@-moz-keyframes animLeft{
+from{left:30%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-moz-keyframes animRight{
+from{left:70%;z-index:1;width:300px;height:300px;}
+to{left:30%;z-index:1;width:300px;height:300px;}
+}
+/*Engin for moving IE*/
+@-ms-keyframes animCenter{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:70%;z-index:2;width:300px;height:300px;}
+}
+@-ms-keyframes animLeft{
+from{left:30%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-ms-keyframes animRight{
+from{left:70%;z-index:1;width:300px;height:300px;}
+to{left:30%;z-index:1;width:300px;height:300px;}
+}
+
+
+/*Engin for Moving AntiClockWise Direction*/
+@-webkit-keyframes animLeftAc{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-webkit-keyframes animCenterAc{
+from{left:70%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-webkit-keyframes animRightAc{
+from{left:30%;z-index:1;width:300px;height:300px;}
+to{left:70%;z-index:1;width:300px;height:300px;}
+}
+/*Engin for mozila*/
+@-moz-keyframes animLeftAc{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-moz-keyframes animCenterAc{
+from{left:70%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-moz-keyframes animRightAc{
+from{left:30%;z-index:1;width:300px;height:300px;}
+to{left:70%;z-index:1;width:300px;height:300px;}
+}
+/*Engin for mozila*/
+@-ms-keyframes animLeftAc{
+from{left:50%;z-index:2;width:350px;height:350px;}
+to{left:30%;z-index:2;width:300px;height:300px;}
+}
+@-ms-keyframes animCenterAc{
+from{left:70%;z-index:30;width:300px;height:300px;}
+to{left:50%;z-index:30;width:350px;height:350px;}
+}
+@-ms-keyframes animRightAc{
+from{left:30%;z-index:1;width:300px;height:300px;}
+to{left:70%;z-index:1;width:300px;height:300px;}
+}
+</style>
+<script>
+var clockId;var antiClockId;
+var center;
+var left;
+var right;
+var stop;
+	function getId(){
+		clockId = 1;antiClockId = 1;
+		left = document.getElementById("left");
+		center = document.getElementById("center");
+		right = document.getElementById("right");
+	}
+	function changeAnim(){
+		if(clockId==1){
+			left.style.WebkitAnimationName = "animLeft";
+			center.style.WebkitAnimationName = "animCenter";
+			right.style.WebkitAnimationName = "animRight";
+			//mozila ..........
+			left.style.MozAnimationName = "animLeft";
+			center.style.MozAnimationName = "animCenter";
+			right.style.MozAnimationName = "animRight";
+			//IE ..........
+			left.style.MsAnimationName = "animLeft";
+			center.style.MsAnimationName = "animCenter";
+			right.style.MsAnimationName = "animRight";
+			antiClockId=1;++clockId;
+			
+		}else if(clockId==2){
+			left.style.WebkitAnimationName = "animCenter";
+			center.style.WebkitAnimationName = "animRight";
+			right.style.WebkitAnimationName = "animLeft";
+			//mozila .................
+			left.style.MozAnimationName = "animCenter";
+			center.style.MozAnimationName = "animRight";
+			right.style.MozAnimationName = "animLeft";
+			//IE .................
+			left.style.MsAnimationName = "animCenter";
+			center.style.MsAnimationName = "animRight";
+			right.style.MsAnimationName = "animLeft";
+			++clockId;antiClockId=2;
+		}else if(clockId==3){
+			center.style.WebkitAnimationName = "animLeft";
+			left.style.WebkitAnimationName = "animRight";
+			right.style.WebkitAnimationName = "animCenter";
+			
+			//mozila.......
+			center.style.MozAnimationName = "animLeft";
+			left.style.MozAnimationName = "animRight";
+			right.style.MozAnimationName = "animCenter";
+			//IE.......
+			center.style.MsAnimationName = "animLeft";
+			left.style.MsAnimationName = "animRight";
+			right.style.MsAnimationName = "animCenter";
+			clockId = 1;antiClockId=3;
+		}
+    }
+	function changeAnimR(){
+		if(antiClockId==3){
+			left.style.WebkitAnimationName = "animRightAc";
+			center.style.WebkitAnimationName = "animLeftAc";
+			right.style.WebkitAnimationName = "animCenterAc";
+			//mozila...........
+			left.style.MozAnimationName = "animRightAc";
+			center.style.MozAnimationName = "animLeftAc";
+			right.style.MozAnimationName = "animCenterAc";
+			//IE...........
+			left.style.MsAnimationName = "animRightAc";
+			center.style.MsAnimationName = "animLeftAc";
+			right.style.MsAnimationName = "animCenterAc";
+			antiClockId--;clockId=3;
+		}else if(antiClockId==2){
+			left.style.WebkitAnimationName = "animCenterAc";
+			center.style.WebkitAnimationName = "animRightAc";
+			right.style.WebkitAnimationName = "animLeftAc";
+			//mozila...........
+			left.style.MozAnimationName = "animCenterAc";
+			center.style.MozAnimationName = "animRightAc";
+			right.style.MozAnimationName = "animLeftAc";
+			//IE...........
+			left.style.MsAnimationName = "animCenterAc";
+			center.style.MsAnimationName = "animRightAc";
+			right.style.MsAnimationName = "animLeftAc";
+			antiClockId--;clockId=2;
+		}else if(antiClockId==1){
+			left.style.WebkitAnimationName = "animLeftAc";
+			center.style.WebkitAnimationName = "animCenterAc";
+			right.style.WebkitAnimationName = "animRightAc";
+			//mozila...........
+			left.style.MozAnimationName = "animLeftAc";
+			center.style.MozAnimationName = "animCenterAc";
+			right.style.MozAnimationName = "animRightAc";
+			//mozila...........
+			left.style.MsAnimationName = "animLeftAc";
+			center.style.MsAnimationName = "animCenterAc";
+			right.style.MsAnimationName = "animRightAc";
+			antiClockId=3;clockId=1;
+		}
+    }	
+function run(){
+getId();
+autoRun();
+}
+function autoRun(){
+stop = setInterval(changeAnim,4000);
+}
+function runAclockWise(){
+clearInterval(stop,0);
+changeAnim();
+autoRun();
+}
+function runClockWise(){
+clearInterval(stop,0);
+changeAnimR();
+autoRun();
+}
+</script>
+</head>
+<body onload="run()">
+<div id = "me"><center>Created by <a href = "https://www.facebook.com/AISHUVO">I'am.....</a></center></div>
+<div id="main">
+<cxcy id="center" > <img src = "https://scontent-lax.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/1661558_816556451750454_392944044469313558_n.jpg?oh=3681e559bdbd198dbb8c455cc8af0c42&oe=5592ED88" alt="img1"/> </cxcy>		<!--center............-->
+<cxcy id="left"  > <img src = "https://scontent-lax.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11042957_816556471750452_4856092835826182815_n.jpg?oh=4f75b362110109e101edde7293521e9e&oe=55763FC3" alt="img2"/> </cxcy>		<!--left..............-->
+<cxcy id="right" > <img src = "https://scontent-lax.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10394653_816556481750451_8168488915766884296_n.jpg?oh=32dcdbf1eb4fd6843a5ab8c723baca3e&oe=5572BE78" alt = "img3"/> </cxcy>		<!--right.............-->
+<cxcy id = "leftStand"  onclick = "runAclockWise()"></cxcy><!--it will Act As a Clockwise button-->
+<cxcy id = "rightStand" onclick = "runClockWise()"></cxcy><!--it will Act As a AntiClockWise button-->
+</div>
+
+</body></html>

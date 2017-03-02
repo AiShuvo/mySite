@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="practise.css">
+<style>
+</style>
+</head>
+<body onload = "animate()">
+<div class = "container">
+	<div class = "hor" id = "hor" onclick="fileListOpen()"></div>
+	<div class = "ver" id = "ver" onclick="fileListClose()">
+		amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+			amar shonar bangla ami tomai valobashi chiro din tomar akash tomar batast amr prane
+	</div>
+</div>
+</body>
+<script>
+	function fileListOpen(){
+		var hor = document.getElementById("hor");
+		hor.classList.remove("helpToClosePlaylist");
+		hor.classList.add("helpToShowPlaylist");
+		
+		var ver = document.getElementById("ver");
+		ver.classList.remove("hidePlaylist");
+		ver.classList.add("showPlaylist");
+	}
+	function fileListClose(){
+		var hor = document.getElementById("hor");
+		hor.classList.remove("helpToShowPlaylist");
+		hor.classList.add("helpToClosePlaylist");
+		
+		var ver = document.getElementById("ver");
+		ver.classList.remove("showPlaylist");
+		ver.classList.add("hidePlaylist");
+	}
+</script>
+</html>
