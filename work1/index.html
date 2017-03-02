@@ -32,9 +32,12 @@ var name = document.getElementById("image");
 		clearInterval (finish);
 	}
 }
+function imgLoad(){
+alert("image is loaded");
+}
 </script>
 <div id = "top">image Animation using CSS3 & JavaScript:click on Image to change the view</div>
-<img id = "image" onload = "" src = "images/projapoti1.jpg" alt = "internet" onclick = 'animName()'>
+<img id = "image" onload = "imgLoad()" src = "images/projapoti1.jpg" alt = "internet" onclick ='animName()'>
 <div id = "bottom">www.facebook.com/aishuvo</div>
 </body>
 </html>
